@@ -1,0 +1,26 @@
+<view class="container carts-list" wx:if="{{myGoodsList.length>0}}">
+    <view wx:for="{{myGoodsList}}" wx:key="index" class="carts-item" data-id="{{myGoodsList[index].fitemid}}">
+		<view>
+		<!-- 缩略图 -->
+		  <image class="carts-image" src="{{myGoodsList[index][0].fimgs1[0]}}" mode="aspectFill" bindtap="showWare" data-id="{{myGoodsList[index][0].fitemid}}"/>
+		</view>
+      <view class="carts-text">
+      	<!-- 商品标题 -->
+        <text class="carts-title">{{myGoodsList[index][0].fname}}</text>
+        <view class="carts-subtitle">
+        <!-- 价格 -->
+          <text class="carts-price">{{myGoodsList[index][0].frefcost}}</text>
+		  <image catchtap="moveOut" data-idx="{{index}}" class="delete" src="../../../image/icon/favorite-active.png" style="" mode="widthFix" />
+        </view>
+      </view>
+    </view>
+</view>
+
+<view wx:else class="noData">
+  <image src="../../../image/icon/empty-result.png"></image>
+  <text>收藏夹空空如也!</text>
+</view>
+
+<loading hidden="{{loadingHidden}}">
+  加载中...
+</loading>

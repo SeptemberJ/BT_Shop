@@ -1,0 +1,45 @@
+<!--<import src="../wxParse/wxParse.wxml"/>-->
+<view class="" wx:if="{{goodsList.length>0}}">
+<view class="listItem"  wx:for="{{goodsList}}" wx:for-index="ListIndex" wx:for-item="ListItem" >
+<!--ware swiper-->
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" >
+  <block wx:for="{{ListItem.fimgs1}}" wx:key="" wx:for-index="eachIndex" wx:for-item="eachItem">
+  <navigator url="../ware/index?id={{ListItem.fitemid}}" hover-class="navigator-hover">
+    <swiper-item>
+        <image src="{{eachItem}}" class="slide-image" />
+        <view class="priceBar">
+          <view class="price">￥{{ListItem.frefcost}}</view>
+          <view class="reference">{{eachIndex+1}}/{{ListItem.fimgs1.length}}</view>
+        </view>
+    </swiper-item>
+    </navigator>
+  </block>
+</swiper>
+
+<view class="container">
+  <!--ware big and small title-->
+  <view class="swipeNavTit">
+    <text class="bigTit">{{ListItem.fname}}</text>
+    <text class="smallTit">{{ListItem.fbigtitle}}</text>
+  </view>
+  <!--ware threeBlocks-->
+  <!--<view class="threeBlocks">
+    <view class="rate">
+      <image src="../../image/icon/rate5.png"></image>
+    </view>
+    <view class="evaluate">
+      <image src="../../image/icon/msg.png"></image>
+      <text>5</text>
+    </view>
+    <view class="favorite">
+      <image src="{{ifFavorite?'../../image/icon/favorited.png':'../../image/icon/favorite.png'}}" bindtap="favorite"></image>
+    </view>
+  </view>-->
+</view> 
+</view>
+</view>
+  <view wx:else class="noData">
+    <image src="../../image/icon/error.png"></image>
+    <text>暂无数据</text>
+  </view> 

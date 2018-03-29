@@ -1,0 +1,21 @@
+<view class="records">
+    <view class="record" wx:for="{{record}}" wx:key="">
+        <view class="record_item date">
+            <text>申请日期:{{item.date}}</text>
+        </view>
+        <view class="record_item">
+            <text>姓名:{{item.name}}</text>
+            <text>电话:{{item.tel}}</text>
+        </view>
+        <view class="record_item">
+            <text>报修内容:{{item.content}}</text>
+        </view>
+        <view class="record_item">
+            <text>地址:{{item.addr}}</text>
+        </view>
+    </view>
+</view>
+
+<loading hidden="{{loadingHidden}}">
+  加载中...
+</loading>

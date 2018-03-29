@@ -1,0 +1,88 @@
+<!--tab-->
+<view class="tab_block">
+	<view wx:for="{{tabList}}" wx:key="" class="tab_item {{cur==index?'active':''}}" bindtap="changeTab" data-id="{{index}}">
+	<text>{{item}}</text>
+	</view>
+</view>
+
+<!--orderList-->
+<view wx:if="{{orderList.length>0}}">
+	<view class="orderList" wx:for="{{orderList}}" wx:key="">
+		<view class="orderNo">
+			<text>订单号:{{item[0].Forderno}}  {{item[0].fbase}}</text>
+		</view>
+		
+		<view class="sum">
+			<text>付款金额</text>
+			<text>￥{{item[0].total}}</text>
+		</view>
+		<!--若为门店类-->
+		<view class="delivery_store" wx:if="{{item[0].fbase!='快递送货'}}">
+			<text>门店:{{item[0].FDeliveryAddress2}}</text>
+			<view class="takeBySelf" wx:if="{{item[0].fbase=='门店自提'}}">
+				<view class="code">
+					<text>提货码:{{item[0].Forderno}}</text>
+					<!--<text>提货时间:{{item[0].date}}</text>-->
+				</view>
+				<view class="qrCode">
+					<canvas bindtap="previewImg" hidden="{{canvasHidden}}" style="width: 50px;height: 50px;" canvas-id="mycanvas{{index}}"/>
+				</view>
+			</view>
+      <!--门店配送-->
+      <view class="takeBySelf" wx:if="{{item[0].fbase=='门店配送'}}">
+				<view class="code">
+					<text>配送时间:{{item[0].date}}</text>
+				</view>
+			</view>
+
+		</view>
+
+		<view class="goods">
+			<view class="goods_item">
+				<text class="good_name">商品名称</text>
+				<text class="good_amount">数量</text>
+			</view>
+			<view class="goods_item" wx:for="{{item[1]}}" wx:for-item="goodsItem" wx:for-index="goodsIndex" wx:key="">
+				<text class="good_name">{{goodsItem.Fgoods_Name}}</text>
+				<text class="good_amount">{{goodsItem.Fgoods_num}}</text>
+			</view>
+		</view>
+
+		<view class="address" wx:if="{{item[0].fbase!='门店自提'}}">
+			<view class="address_item contact">
+				<text>联系人：{{item[0].FReceiverName}}</text>
+				<text>电话：{{item[0].FTelephone}}</text>
+			</view>
+			<view class="address_item detail">
+				<text>地址：{{item[0].FDeliveryAddress}}</text>
+			</view>
+		</view>
+
+    
+
+    <view class="operation" wx:if="{{item[0].FBuyerPayMode==0}}">
+      <view class="cancelBt" data-ordernum="{{item[0].Forderno}}" data-idx="{{index}}" bindtap="cancelOrder">取消订单</view>
+      <view class="payBt" data-ordernum="{{item[0].Forderno}}" data-idx="{{index}}" bindtap="toPay">去付款</view>
+    </view>
+    <!--确认收货-->
+    <view class="operation" wx:if="{{item[0].FBuyerPayMode==2}}">
+    <view class="logisticsBt" data-ordernum="{{item[0].Forderno}}" data-idx="{{index}}" bindtap="toLogistics">查看物流</view>
+      <view class="confirmBt" data-ordernum="{{item[0].Forderno}}" data-idx="{{index}}" bindtap="toConfirm">确认收货</view>
+    </view>
+    <!--去评价-->
+    <view class="operation" wx:if="{{item[0].FBuyerPayMode==3}}">
+      <view class="evaluateBt" data-ordernum="{{item[0].Forderno}}" bindtap="toEvaluate">去评价</view>
+    </view>
+
+
+	</view>
+</view>
+
+<view wx:else class="noData">
+  <image src="../../../image/icon/order-nodata.png"></image>
+  <text>暂无相关订单信息！</text>
+</view>
+
+<loading hidden="{{loadingHidden}}">
+  加载中...
+</loading>

@@ -1,0 +1,380 @@
+/*WH*/
+.WH-block .topBox{
+	width: 100%;
+	height: 200rpx;
+	display: flex;
+    flex-direction: row;
+	align-items: center;
+	border-bottom: 5px solid #eee;
+}
+.WH-block .topItem{
+	flex-grow: 5;
+	padding-left: 10rpx;
+}
+.WH-block .topItem image{
+	width: 160rpx;
+	height: 160rpx;
+}
+.WH-block .topItem text{
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #5a8bab;
+}
+
+.WH-block .topItem text.orderaAmount{
+	padding-left: 10rpx;
+	padding-right: 10rpx;
+	font-size: 50rpx;
+	font-weight: bold;
+	color: #fc6590;
+}
+
+.WH-block .search{
+	width: 100%;
+	height: 80rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	background: #fff;
+	border-bottom: 5px solid #eee;
+}
+.WH-block .search image{
+	width: 50rpx;
+	height: 50rpx;
+	
+}
+.WH-block .orderList{
+	width: 100%;
+	display: flex;
+    flex-direction: column;
+	align-items: center;
+}
+.WH-block .orderListItem{
+	width: 100%;
+	display: flex;
+    flex-direction: row;
+	align-items: center;
+	border-bottom: 1px solid #eee;
+	padding: 18rpx 10rpx;
+}
+.WH-block .bellImg{
+	width:100rpx;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+.WH-block .bellImg image{
+	width: 80rpx;
+	height: 80rpx;
+	display: block;
+	margin-left: 15rpx;
+}
+.WH-block .orderCont{
+	width:calc(100% - 200rpx);
+	
+}
+.WH-block .orderCont text{
+	display: block;
+	margin: 12rpx;
+  
+}
+.WH-block .samlF{
+	font-size: 32rpx;
+}
+.WH-block .bigF{
+	font-size: 34rpx;
+}
+.WH-block .orderListItem .right{
+	width:100rpx;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+.WH-block .orderListItem .right image{
+	display: flex;
+	float: right;
+	margin-right: 10rpx;
+	width:80rpx;
+	height: 80rpx;
+}
+
+.WH-block .addressNull{
+    width: 100%;
+    margin: 20rpx auto;
+    text-align: center;
+}
+
+
+/*SP*/
+.SP-order .orderTab{
+  width: 100%;
+  margin: 0rpx auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:center;
+  padding-top: 5rpx;
+  /*flex-wrap: wrap; */
+}
+.SP-order .item{ 
+	/*width: 33%;*/
+	display: flex;
+	flex-grow: 1;
+	margin-top: 5rpx;
+}
+.SP-order .item text{ 
+	width: 100%;
+	text-align: center;
+	color: #666;
+	padding: 0rpx;
+	font-size: 30rpx;
+	line-height: 72rpx;
+}
+.SP-order .item{ 
+  border-right:2rpx solid #EEEEE0;
+}
+.SP-order .item:nth-of-type(6){ 
+  border-right:0px solid #ccc;
+}
+
+.SP-order .active text{
+	font-weight: bold; 
+	color: #609ddc;
+	border-bottom:2px solid #609ddc;
+}
+
+/*000*/
+.SP-order .stock-list {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+	margin-bottom: 56px;
+	margin-top: 60rpx;
+}
+.SP-order .stockListItem {
+	display: flex;
+  	flex-direction: row;
+	margin-bottom: 20rpx;
+	background: #fff;
+	padding: 20rpx 10rpx;
+	width:90%;
+	background-color:#fff;
+	margin-top: 10rpx;
+	-moz-box-shadow: 0px 0px 10px #bfbfbf; 
+	box-shadow: 0px 0px 10px #bfbfbf;
+}
+.SP-order .stockListItem:nth-child(4n+0){
+  border-left:10rpx solid #3ddf94;
+}
+.SP-order .stockListItem:nth-child(4n+1){
+  border-left:10rpx solid #ff5f8e;
+}
+.SP-order .stockListItem:nth-child(4n+2){
+  border-left:10rpx solid #9c87ff;
+}
+.SP-order .stockListItem:nth-child(4n+3){
+  border-left:10rpx solid #fcc56a;
+}
+
+.SP-order .stockListItem .left{
+	flex-grow:11;
+}
+.SP-order .stockListItem .right{
+	  flex-grow:1;
+	  display: flex;
+      flex-direction: column;
+      align-items: center;
+	  justify-content: center;
+	  border-left:2rpx solid #ccc;
+}
+/*.SP-order .rightNoBorder{
+	border-left:2rpx solid red;
+}*/
+.SP-order .stockListItem .right image{
+	display: block;
+	float: right;
+	width:80rpx;
+	height: 80rpx;
+}
+
+
+.SP-order .stockListItem .listBox {
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+	font-size: 30rpx;
+    color: #333;
+    line-height: 55rpx;
+    padding-left: 10rpx;
+}
+.SP-order .listItem{
+    flex-grow:1;
+}
+.SP-order .stockListItem .listBox input{
+	display: inline-block;
+}
+
+.SP-order .stockListItem .listBox text {
+	margin-right: 0rpx;
+}
+.SP-order .amountItem , .dateItem{
+	font-weight: bold;
+}
+.SP-order  .mask{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.3);
+	z-index: 9999;
+}
+.SP-order .cancelReason{
+	width: 640rpx;
+	height: 250rpx;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: #fff;
+	/*border: 1px solid #eee;*/
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%);
+	z-index: 99999;
+}
+.SP-order .cancelReason_input input{
+	width: calc(100% - 40rpx);
+	height: 150rpx;
+	padding: 10rpx 20rpx;
+}
+.SP-order .cancelReason_input{
+	width: 100%;
+	height: 150rpx;
+}
+.SP-order .cancelReason_bt{
+	width: 100%;
+	height: 100rpx;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.SP-order .bt_back, .bt_ok{
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.SP-order .bt_back{
+	background: #000;
+	font-weight: bold;
+}
+.SP-order .bt_ok{
+	background: red;
+	font-weight: bold;
+	/*background: rgb(247,131,106);*/
+}
+/*SE*/
+.SE-block .topBox{
+	width: 100%;
+	height: 200rpx;
+	display: flex;
+    flex-direction: row;
+	align-items: center;
+	border-bottom: 5px solid #eee;
+}
+.SE-block .topItem{
+	flex-grow: 5;
+	padding-left: 10rpx;
+}
+.SE-block .topItem image{
+	width: 200rpx;
+	height: 200rpx;
+}
+.SE-block .topItem text{
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #313fa0;
+}
+
+.SE-block .topItem text.orderaAmount{
+	padding-left: 10rpx;
+	padding-right: 10rpx;
+	font-size: 50rpx;
+	font-weight: bold;
+	color: #fc6590;
+}
+
+.SE-block .orderList{
+	width: 100%;
+	display: flex;
+    flex-direction: column;
+	align-items: center;
+}
+.SE-block .orderListItem{
+	width: 100%;
+	display: flex;
+    flex-direction: row;
+	align-items: center;
+	border-bottom: 1px solid #eee;
+	padding: 18rpx 10rpx;
+}
+.SE-block .bellImg{
+	width:115rpx;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+.SE-block .bellImg image{
+	width: 100rpx;
+	height: 100rpx;
+	display: block;
+	margin-left: 15rpx;
+}
+.SE-block .orderCont{
+	width: calc(100% - 195rpx);
+}
+.SE-block .orderCont text{
+	display: block;
+	font-size: 32rpx;
+	margin: 12rpx;
+  font-weight: bold;
+  text-align: center;
+}
+.SE-block .orderListItem .right{
+	width:70rpx;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+.SE-block .orderListItem .right image{
+	display: flex;
+	float: right;
+	/*margin-right: 10rpx;*/
+	width:70rpx;
+	height: 70rpx;
+}
+
+
+/*public*/
+.InfoNull{
+    width: 100%;
+	display: flex;
+    flex-direction: column;
+	align-items: center;
+    margin: 20rpx auto;
+    text-align: center;
+}
+.InfoNull image{
+    width: 200rpx;
+	height: 200rpx;
+    margin: 80rpx auto;
+    
+}

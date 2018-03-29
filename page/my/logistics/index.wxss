@@ -1,0 +1,111 @@
+/*orderInfo*/
+page{
+  background: #f5f5f5;
+}
+.container{
+  background: #fff;
+  margin-bottom: 0rpx;
+}
+.second{
+  margin-top: 40rpx;
+}
+.orderInfo{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.imgBox{
+  width:170rpx;
+  height:100%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.imgBox image{
+  width:150rpx;
+  height:100rpx;
+}
+.amount{
+  width:150rpx;
+  height:50rpx;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 25rpx;
+}
+.infoBox{
+  width: calc(100% - 150rpx);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.orderInfo_item{
+  width: 100%;
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.lightColor{
+  color: #c0c0c0;
+}
+.bigSize{
+  font-size: 32rpx;
+}
+.greenColor{
+  font-size: 32rpx;
+  color: #25ae5f;
+}
+/*logistics*/
+.logistics{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background: #fff;
+}
+.logistics_item{
+   width: 100%;
+   height: 200rpx;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+}
+.logistics_item:first-of-type{
+   color: #25ae5f;
+}
+.item_left{
+  width: 100rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.item_left image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.item_right{
+  width: calc(100% - 100rpx);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border-bottom: 1px solid #eee;
+}
+.noBorder{
+  border-bottom: 0px solid #eee;
+}
+.date{
+  margin-top: 20rpx;
+}

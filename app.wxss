@@ -1,0 +1,83 @@
+/**app.wxss**/
+/*@import "./style/layout.wxss";*/
+
+.container {
+    font-family:"Microsoft Yahei", Helvetica Neue, Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20rpx;
+    margin-bottom: 80rpx;
+}
+
+page {
+    /*background-color: #ebebeb;*/
+    background: #fff;
+    height: 100%;
+    font-size: 30rpx;
+}
+
+.noData{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.noData image{
+	width: 180rpx;
+	height: 180rpx;
+	margin: 10rpx auto;
+}
+.noData text{
+	color: #777;
+}
+text{
+    font-size: 30rpx;
+}
+
+/*mask*/
+.mask{
+  width: 750rpx;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /*z-index: 999999;*/
+   background: rgba(0, 0, 0, 0.5);
+}
+.getCard{
+  width: 640rpx;
+  height: 500rpx;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+}
+.closeBox{
+  width: 640rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+.closeBox image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.mainBox{
+  width: 600rpx;
+  height: 400rpx;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mainBox text{
+  color: #b08957;
+  font-size: 38rpx;
+  font-weight: bold;
+}

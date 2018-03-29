@@ -1,0 +1,13 @@
+<view class="customer_block"></view>
+
+
+
+<contact-button class="goService"
+  type="default-dark" 
+  size="27"
+  session-from="柏田商城系统"
+></contact-button>
+
+<image class="clickFinger" src="../../image/icon/click.png"></image>
+
+  <!--<map id="map" longitude="113.324520" latitude="23.099994" scale="{{scale}}" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" circles="{{circles}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: {{view.Height}}px;"></map>-->

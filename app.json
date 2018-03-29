@@ -1,0 +1,75 @@
+{
+  "pages": [
+    
+  
+    "page/index/index",
+    "page/ware/index",
+    "page/evaluate/index",
+    "page/cart/index",
+    "page/order/index",
+    "page/goods/index",
+    "page/module/index",
+    "page/customer/index",
+
+     "page/my/index/index",
+      "page/my/order/index",
+      "page/my/address/add/add",
+      "page/my/address/list/list",
+      "page/my/receipt/list/index",
+      "page/my/receipt/add/index",
+      "page/my/favorite/index",
+      "page/my/coupon/index",
+      "page/my/gcoupon/index",
+      "page/my/service/index/index",
+      "page/my/service/history/index",
+      "page/my/toEvaluate/index",
+      "page/my/logistics/index",
+      "page/index2/index",
+
+
+    "dist/tabbar"
+  ],
+  "window": {
+    "backgroundTextStyle": "white",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "柏田软件",
+    "navigationBarBackgroundColor": "#b08957",
+    "backgroundColor": "#F2f2f2",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#d81e06",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "page/index/index",
+        "iconPath": "image/icon/icon-index.png",
+        "selectedIconPath": "image/icon/icon-index-active.png",
+        "text": "首页"
+      },
+      
+      {
+        "pagePath": "page/customer/index",
+        "iconPath": "image/icon/icon-custom.png",
+        "selectedIconPath": "image/icon/icon-custom-active.png",
+        "text": "客服"
+      },
+      {
+        "pagePath": "page/cart/index",
+        "iconPath": "image/icon/icon-cart.png",
+        "selectedIconPath": "image/icon/icon-cart-active.png",
+        "text": "购物车"
+      },
+      
+      {
+        "pagePath": "page/my/index/index",
+        "iconPath": "image/icon/icon-my.png",
+        "selectedIconPath": "image/icon/icon-my-active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "debug": true
+}

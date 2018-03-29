@@ -1,0 +1,81 @@
+<!--userinfo-->
+<view class="userinfo">
+	<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover" bindtap="chooseImage"></image>
+	<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+</view>
+
+<!--order-->
+<view class="colName">
+	<text>我的订单</text>
+</view>
+<view class="order-area">
+	<view bindtap="navigateToOrder" class="order" data-status="0">
+		<image src="../../../image/icon/icon_pay.png" />
+		<text>待付款</text>
+	</view>
+	<view bindtap="navigateToOrder" class="order" data-status="1">
+		<image src="../../../image/icon/icon_warehouse.png" />
+		<text>待发货</text>
+	</view>
+	<view bindtap="navigateToOrder" class="order" data-status="2">
+		<image src="../../../image/icon/icon_car.png" />
+		<text>待收货</text>
+	</view>
+  <view bindtap="navigateToOrder" class="order" data-status="3">
+		<image src="../../../image/icon/icon_evaluate.png" />
+		<text>待评价</text>
+	</view>
+	<view bindtap="navigateToOrder" class="order" data-status="4">
+		<image src="../../../image/icon/icon_history.png" />
+		<text>全部</text>
+	</view>
+</view>
+
+<view bindtap="navigateToAddress" class="tableviewcell">
+	<image src="../../../image/icon/address.png" />
+	<text>收货地址</text>
+	<view class="right">
+		<image  data-index="{{index}}" src="../../../image/icon-arrowdown.png" />
+	</view>
+</view>
+
+<view bindtap="navigateToReceipt" class="tableviewcell">
+	<image src="../../../image/icon/receipt.png" />
+	<text>发票抬头</text>
+	<view class="right">
+		<image  data-index="{{index}}" src="../../../image/icon-arrowdown.png" />
+	</view>
+</view>
+
+<view bindtap="navigateToFavorite" class="tableviewcell">
+	<image src="../../../image/icon/favorite.png" />
+	<text>我的收藏</text>
+	<view class="right">
+		<image  data-index="{{index}}" src="../../../image/icon-arrowdown.png" />
+	</view>
+</view>
+
+<view bindtap="navigateToCoupon" class="tableviewcell">
+	<image src="../../../image/icon/folder.png" />
+	<text>我的优惠券</text>
+	<view class="right">
+		<image  data-index="{{index}}" src="../../../image/icon-arrowdown.png" />
+	</view>
+</view>
+
+<!--<view bindtap="navigateToService" class="tableviewcell">
+	<image src="../../../image/icon/service.png" />
+	<text>我的服务</text>
+	<view class="right">
+		<image  data-index="{{index}}" src="../../../image/icon-arrowdown.png" />
+	</view>
+</view>-->
+
+<view bindtap="navigateToGetCoupon" class="tableviewcell">
+	<image src="../../../image/icon/ticket.png" />
+	<text>领取优惠券</text>
+	<view class="right">
+		<image  data-index="{{index}}" src="../../../image/icon-arrowdown.png" />
+	</view>
+</view>
+<!--<button bindtap="logout" type="warn" class="logout">退出</button>-->

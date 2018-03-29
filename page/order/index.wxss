@@ -1,0 +1,391 @@
+.deliveryAddress{
+    height: 120rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10rpx;
+    background: #fff;
+    border-top: 1px solid #FFF;
+	border-image: url('../../image/strap.jpg') 30 30 round;
+}
+.chooseStore{
+    width: calc(100% - 40rpx);
+    height: 100rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 0 20rpx;
+}
+.chooseStoreText{
+  width: 600rpx;
+  display: inline-block;
+  line-height: 100rpx;
+  
+}
+.deliverTime{
+    width: calc(100% - 40rpx);
+    height: 100rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 0 20rpx;
+}
+.chooseStore image, .deliverTime image{
+    width: 40rpx;
+    height: 40rpx;
+}
+.noAddress{
+    height: 120rpx;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    padding: 10rpx;
+    background: #fff;
+    border-top: 1px solid #FFF;
+	border-image: url('../../image/strap.jpg') 30 30 round;
+}
+.alignLeft{
+    height: 100%;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+.add_address{
+    width: 80rpx;
+    height: 80rpx;
+}
+.alignLeft text{
+    height: 100%;
+    padding-left: 20rpx;
+    line-height: 120rpx;
+}
+.addr_icon{
+    width: 40rpx;
+    height: 40rpx;
+    display: flex;
+}
+.addr_icon image{
+    width: 40rpx;
+    height: 40rpx;
+    display: block;
+}
+.addr_info{
+    width: 670rpx;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-around;
+    padding: 0  20rpx;
+}
+.addr_info .item{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.detail{
+    color: #666;
+}
+.addr_arrow{
+    width: 40rpx;
+    height: 40rpx;
+    display: flex;
+}
+.addr_arrow image{
+    width: 40rpx;
+    height: 40rpx;
+    display: block;
+}
+/*orderList*/
+.orderList{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 20rpx solid #f5f5f5;
+}
+.order_item{
+    width: calc(100% - 40rpx);
+    height: 170rpx;
+    margin-top: 20rpx;
+    padding: 10rpx 20rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background:#fff;
+
+}
+.ware_img{
+    width: 150rpx;
+    height: 150rpx;
+    display: flex;
+}
+.ware_tit{
+    width: calc(100% - 320rpx);
+    height: 150rpx;
+    display: flex;
+    /*align-items: center;
+    justify-content: center;*/
+    padding-left: 20rpx;
+    /*text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: wrap;*/
+}
+.ware_amount_price{
+    width: 150rpx;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+    justify-content:space-around;
+}
+.ware_amount_price text{
+    display: flex;
+    color: #f60
+}
+.ware_amount_price text:nth-of-type(1)::before{
+    content: "￥";
+    
+}
+/**/
+.attached_info{
+    width: calc(100% - 40rpx);
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    background: #fff;
+    height: 200rpx;
+    padding: 25rpx 20rpx;
+    /*margin-top: 20rpx;*/
+    margin-bottom: 80rpx;
+    border-top: 20rpx solid #f5f5f5;
+}
+/*receipt*/
+.receipt_info{
+    width: calc(100% - 40rpx);
+    height: 100rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 0 20rpx;
+    margin-top: 20rpx;
+    border-top: 20rpx solid #f5f5f5;
+}
+.receiptDetail{
+    width: calc(100% - 40rpx);
+    height: 240rpx;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    /*align-items:flex-start;
+    justify-content: space-between;*/
+    background: #fff;
+    padding: 0 20rpx;
+}
+.receiptDetail text{
+    height: 80rpx;
+    line-height: 80rpx;
+}
+.chooseReceiptBar{
+    width: calc(100% - 40rpx);
+    height: autorpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    background: #fff;
+    padding: 0 20rpx;
+}
+.chooseReceiptBar image{
+    width: 40rpx;
+    height: 40rpx;
+}
+/*coupon*/
+.coupon_info{
+    width: calc(100% - 40rpx);
+    height: 100rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 0 20rpx;
+    /*margin-top: 20rpx;*/
+    border-top: 20rpx solid #f5f5f5;
+}
+/*.coupon_info text:nth-of-type(2){
+    color: red;
+}*/
+.illustration{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.illustration text:nth-of-type(2){
+    color: #f60;
+}
+/*delivery*/
+.delivery_info{
+    width: calc(100% - 40rpx);
+    height: 100rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 0 20rpx;
+    margin-top: 20rpx;
+}
+.way_item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+/*receipt*/
+.receipt_info{
+    width: calc(100% - 40rpx);
+    height: 100rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 0 20rpx;
+    margin-top: 20rpx;
+}
+/**/
+.footer_total{
+    width:100%;
+    height:80rpx;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content:space-between;
+    position:fixed;
+    bottom:0;
+    background: #fff;
+    border-top: 1rpx solid #eee;
+    z-index: 999999;
+}
+.toatl_price{
+    width: 510rpx;
+    height: 100%;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content:flex-end;
+    color: #f60;
+    padding-right: 20rpx;
+}
+.submitBt{
+    width: 220rpx;
+    height: 100%;
+    background: #f60;
+    font-size: 36rpx;
+    color: #fff;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content:center;
+    border-radius: 0;
+}
+/*开具类型*/
+.inputInfo{
+    width: calc(100% - 40rpx);
+    padding: 0 20rpx;
+    /*font-size: 28rpx;*/
+}
+/*.inputInfo text{
+    font-size: 28rpx;
+}*/
+.receipt_kind{
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	align-items: center;
+	/*justify-content:space-between;*/
+	background: #fff;
+}
+.receipt_item{
+	height: 80rpx;
+	display: flex;
+	align-items: center;
+	/*justify-content: center;*/
+}
+.kind{
+	margin-right: 20rpx;
+}
+.receiptAttach{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.normalReceipt{
+    width: 100%;
+    height: auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 1px dotted #ccc;
+}
+.receipt_item{
+    width: 100%;
+    height: 100rpx;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.receipt_item image{
+    width: 50rpx;
+    height: 50rpx;
+}
+.receipt_item input{
+     width: 400rpx;
+    height: 60rpx;
+    padding: 5rpx 10rpx;
+    border: 1px solid #eee;
+}
+.required{
+    color:#f60;
+}
+.specialReceipt{
+    width: 100%;
+    height: auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 1px dotted #ccc;
+}
+
+
+
+.receipt_name, .receipt_number{
+	width: 100%;
+	height: 80rpx;
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	align-items: center;
+	/*justify-content:space-between;*/
+	background: #fff;
+	border-top: 1px solid #eee;
+}
+.tit{
+	width: 200rpx;
+}

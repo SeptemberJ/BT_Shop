@@ -1,0 +1,107 @@
+<import src="../wxParse/wxParse.wxml"/>
+<!--ware swiper-->
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" >
+  <block wx:for="{{ware[0][0].fimgs1}}" wx:key="" >
+    <swiper-item bindtap="previewImage" data-index="{{index}}">
+        <image src="{{item}}" class="slide-image" />
+        <view class="priceBar">
+          <view class="price">￥{{ware[0][0].frefcost}}</view>
+          <view class="reference">{{index+1}}/{{ware[0][0].fimgs1.length}}</view>
+        </view>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="container">
+  <!--ware big and small title-->
+  <view class="swipeNavTit">
+    <text class="bigTit">{{ware[0][0].fname}}</text>
+    <text class="smallTit">{{ware[0][0].fbigtitle}}</text>
+  </view>
+  <!--ware threeBlocks-->
+  <view class="threeBlocks">
+    <view class="rate">
+      <image src="../../image/icon/rate{{rate}}.png"></image>
+    </view>
+    <view class="evaluate">
+      <image src="../../image/icon/msg.png"></image>
+      <text>{{evaluates}}</text>
+    </view>
+    <view class="favorite">
+      <image src="{{ifFavorite?'../../image/icon/favorited.png':'../../image/icon/favorite.png'}}" bindtap="favorite"></image>
+    </view>
+  </view>
+  <!--ware evaluates-->
+  <view class="evaluates">
+    <view class="shortLine"></view>
+    <view class="navTitle">
+      <text>用户评价</text>
+    </view>
+    <!--evaluates list top2-->
+    <view class="evaluates_item" wx:for="{{ware[1]}}" wx:key="">
+        <view class="evaluates_item_top">
+          <view class="left">
+            <image src="{{item.comment_userpic}}"></image>
+            <text>{{item.comment_user}}</text>
+          </view>
+          <view class="right">{{item.comment_time.time}}</view>
+        </view>
+        <view class="evaluates_item_bot">
+          {{item.comment_content}}
+        </view>
+    </view>
+    <!--evaluates more-->
+    <text wx:if="{{ware[1].length>0}}" class="loadMore" bindtap="loadMore">共{{evaluates}}条评论,查看全部 >></text>
+    <text wx:if="{{ware[1].length<=0}}" class="loadMore" >该商品暂无评价</text>
+  </view>
+  <!--//ware evaluates-->
+
+    <!--ware introduction-->
+  <view class="introduction">
+    <view class="shortLine"></view>
+    <view class="navTitle">
+      <text>商品详情</text>
+    </view>
+    <view class="introduction_content">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+      <!--<text wx:for="{{ware.attach.introduction}}" wx:key="">
+        {{item}}
+      </text>-->
+    </view>
+  </view>
+  <!--//ware introduction-->
+</view>
+
+<!--footer_total-->
+<view class="footer_total">
+    <view class="close" wx:if="{{showQuantity}}">
+        <image src="../../image/icon/close-white.png" bindtap="closeShowQuantity"></image>
+    </view>
+
+    <view class="changeQuantity" wx:if="{{showQuantity}}">
+      <text>选择数量</text>
+      <view class="stepper">
+							<!-- 减号 -->
+							<text class="{{quantity>=2?'normal':'disabled'}}" catchtap="bindMinus">-</text>
+							<!-- 数值 -->
+							<input type="number" bindchange="bindManual" value="{{quantity}}" />
+							<!-- 加号 -->
+							<text class="normal"  catchtap="bindPlus">+</text>
+      </view>
+    </view>
+    
+    <view class="btBar" wx:if="{{!showQuantity}}">
+      <view class="addCartBt" bindtap="addCart">加入购物车</view>
+      <view class="payBt" bindtap="buyNow">立即购买</view>
+    </view>
+
+    <view class="btBar" wx:if="{{showQuantity}}" bindtap="confirm">
+      <view class="confirm" >确定</view>
+    </view>
+</view> 
+
+
+<loading hidden="{{loadingHidden}}">
+  加载中...
+</loading>

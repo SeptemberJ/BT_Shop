@@ -1,0 +1,12 @@
+<view class="evaluates_item" wx:for="{{evaluates}}" wx:key="">
+    <view class="evaluates_item_top">
+        <view class="left">
+            <image src="{{item.comment_userpic}}"></image>
+            <text>{{item.comment_user}}</text>
+        </view>
+        <view class="right">{{item.comment_time}}</view>
+        </view>
+        <view class="evaluates_item_bot">
+          {{item.comment_content}}
+        </view>
+</view>

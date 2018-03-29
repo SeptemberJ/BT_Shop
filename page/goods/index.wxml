@@ -1,0 +1,71 @@
+<view class="goods">
+
+<!--menu-->
+<scroll-view scroll-y="true" class="menu_block">
+  <view class="menu_block_inner">
+    <block wx:for="{{menuList}}" wx:key="">
+        <view class="menuListF_items {{cur==index ? 'active' : ''}}" bindtap="menuTabChange"  data-index="{{index}}" data-fitemid="{{item.FItemID}}">{{item.FName}}
+          <!--<text class=""></text>-->
+        </view>
+        <!--secondNav-->
+        <!--<view wx:if="{{cur==index ? true : false}}" class="menuListS_items" data-id="{{index}}">
+      <block wx:for="{{item.menuS}}" wx:key="">
+        <view class="nav_item">
+          <image src="../../image/menu-dot.png"></image>
+          <text bindtap="switchRightTab1" data-index="{{index}}">{{item}}</text>
+        </view>
+        </block>
+      </view>-->
+    </block>
+  </view>
+</scroll-view>
+
+
+
+<!--ware-->
+<scroll-view scroll-y="true" class="ware_block">
+  <view class="ware_block_inner" wx:if="{{goodsList}}" >
+    <!--banner-->
+    <view class="banner" data-pic="pic">
+      <image src="../../image/banner.png" mode="scaleToFill"></image>
+    </view>
+    <!--wareClip-->
+        <view class="wareClip">
+          <block wx:for="{{goodsList}}" wx:key="">
+            <view class="wareClip_item">
+              <navigator url="../ware/index?id={{item.fitemid}}">
+                <view class="inner_block">
+                  <block wx:if="{{item}}" wx:key="">
+                    <view class="img_block">
+                      <image src="{{item.fimgs1[0]}}" mode="scaleToFill"></image>
+                    </view>
+                    <!--<text class="description">{{item.description}}</text>
+                    <text class="stock">库存:{{item.stock}}</text>
+                    <text class="standard">规格:{{item.standard}}</text>-->
+                    <view class="price">
+                      <text>价格:</text>
+                      <text>{{item.frefcost}}</text>
+                    </view>
+                    
+                  </block>
+                  
+                </view>
+              </navigator>
+            </view>
+          </block>
+        </view>
+  </view> 
+  <view wx:else class="noData">
+    <image src="../../image/icon/error.png"></image>
+    <text>暂无数据</text>
+  </view> 
+</scroll-view>
+
+
+</view>
+
+
+ 
+<loading hidden="{{loadingHidden}}">
+  加载中...
+</loading>

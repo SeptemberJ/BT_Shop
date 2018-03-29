@@ -1,0 +1,41 @@
+<!--<view wx:if="{{coupons}}">
+    <view class="coupon_block" wx:for="{{coupons}}" wx:key="" >
+        <view class="colorBar"></view>
+        <view class="mainInfo">
+            <view class="mainInfo_item coupon_tit">
+                <text>{{item.Ename}}</text>
+                <text>{{item.cardTit}}</text>
+            </view>
+        </view>
+    </view>
+</view>-->
+
+<!--<view class="columnTit">会员卡</view>-->
+
+<view wx:if="{{cardList.length>0}}">
+    <!--<view class="coupon_block member">
+        <view class="img"><image src="../../../image/floor-item2.png"></image></view>
+        <view class="mainInfo">
+            <text>{{cards.memberCard.Ename}}</text>
+            <text class="cardTit">{{cards.memberCard.cardTit}}</text>
+        </view>
+    </view>-->
+ <view class="columnTit">我的优惠券</view>  
+
+    <view class="coupon_block" wx:for="{{cardList}}" wx:key="" bindtap="openCard" data-cardid="{{item.card_id}}" data-code="{{item.code}}" style="background:{{item.bgColor}}">
+        <view class="img"><image src="{{item.card_log}}"></image></view>
+        <view class="mainInfo">
+            <text>{{item.brand_name}}</text>
+            <text class="cardTit">{{item.title}}</text>
+        </view>
+    </view>
+</view>
+
+<view wx:else class="noData">
+  <image src="../../../image/icon/empty-result.png"></image>
+  <text>暂无优惠券!</text>
+</view>
+
+<loading hidden="{{loadingHidden}}">
+  加载中...
+</loading>

@@ -1,0 +1,24 @@
+<form bindsubmit="bindFormSubmit">
+<view class="container" >
+  <view class="evaluate" wx:for="{{goods}}" wx:for-index="goodIndex" wx:for-item="goodItem">
+    <!--good-->
+    <view class="good">
+      <image src="{{goodItem.Fgoods_img1[0]}}"></image>
+      <text>{{goodItem.Fgoods_Name}}</text>
+    </view>
+    <!--starts-->
+    <view class="starts">
+      <text>商品评价</text>
+      <view class="start">
+        <image wx:for="{{levels[goodIndex].starts}}" wx:for-index="startIndex" wx:for-item="startItem" data-indexf="{{goodIndex}}" data-indexs="{{startIndex}}" bindtap="chooseStart" src="{{startItem?'../../../image/icon/start-active.png':'../../../image/icon/start.png'}}"></image>
+      </view>
+    </view>
+    <!--evaluateCont-->
+    <view class="evaluateCont">
+      <textarea name="evaluateCont{{goodIndex}}" placeholder="亲!宝贝满足你的期待吗？说说你的使用心得，分享给想买的他们吧！" />
+    </view>
+  </view>
+</view>
+
+<button bindtap="add" form-type="submit" class="address-add" hover-class="addHover" disabled="{{canDo}}">提交</button>
+</form>

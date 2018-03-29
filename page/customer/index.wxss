@@ -1,0 +1,20 @@
+.customer_block{
+    height: 200rpx;
+    position: relative;
+}
+.goService{
+    position:absolute;
+    left: 50%;
+    top: 100rpx;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+.clickFinger{
+    width: 80rpx;
+    height: 80rpx;
+    position:absolute;
+    left: 50%;
+    top: 160rpx;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}

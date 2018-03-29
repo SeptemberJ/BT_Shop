@@ -1,0 +1,26 @@
+
+
+<view class="SE-block">
+<view class="topBox">
+    <view class="topItem"><image src="../../image/logistics.png"/>
+    </view>
+    <view class="topItem">
+        <image src="../../image/jw.png"/>
+    </view>
+</view>
+<!--orderList block-->
+<view class="orderList">
+    <view class="orderListItem" wx:for="{{RecyclingList}}" wx:key="" bindtap="" data-index="{{index}}">
+        <view class="bellImg"><image src="../../image/bell.png"/>
+        </view>
+        <view class="orderCont">
+            <text>{{item}}</text>
+            <!--<text>共{{item.countsupplier}}笔订单</text>
+            <text>派单日期:{{item.curdate1}}</text>-->
+        </view>
+        <view class="right">
+			    <image  data-index="{{index}}" src="../../image/icon-arrowdown.png" />
+        </view>
+    </view>
+</view>
+</view>

@@ -1,0 +1,49 @@
+<view class="container" wx:if="{{logistics.length>0}}">
+  <!--订单信息-->
+  <view class="orderInfo">
+      <view class="imgBox">
+        <image src="logistics[1][0].Fgoods_img1[0]"></image>
+        <text class="amount">{{logistics[1].length}}件商品</text>
+      </view>
+      
+      <view class="infoBox">
+        <view class="orderInfo_item">
+          <text class="bigSize">物流状态：</text>
+          <text class="greenColor">{{state}}</text>
+        </view>
+        <view class="orderInfo_item lightColor">
+          <text>承运公司：</text>
+          <text>{{logistics[0][0].fname}}</text>
+        </view>
+        <view class="orderInfo_item lightColor">
+          <text>运单编号：</text>
+          <text>{{logistics[2].nu}}</text>
+        </view>
+      </view>
+
+  </view>
+</view>
+
+<view class="container second" wx:if="{{logistics.length>0}}">
+  <!--logistics-->
+  <view class="logistics">
+    <view class="logistics_item" wx:for="{{logistics[2].data}}">
+      <view class="item_left">
+        <image src="{{index==0?'../../../image/icon/dot-circle-o.png':'../../../image/icon/dot_circle.png'}}"></image>
+      </view>
+      <view class="{{index==logistics.length-1?'item_right noBorder':'item_right'}}">
+        <view class="cont">{{item.context}}</view>
+        <view class="date">{{item.time}}</view>  
+      </view>
+    </view>
+  </view>
+</view>
+
+  <view class="noData" wx:if="{{logistics.length<=0}}"> 
+    <image src="../../../image/icon/order-nodata.png"></image>
+    <text>暂无该订单的物流信息</text>
+  </view>
+
+<loading hidden="{{loadingHidden}}">
+  加载中...
+</loading>

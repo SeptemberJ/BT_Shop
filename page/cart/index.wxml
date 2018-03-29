@@ -1,0 +1,71 @@
+<view class="container carts-list" >
+    <view wx:if="{{goodsList.length>0}}" wx:for="{{goodsList}}" wx:key="index" class="carts-item"  data-id="{{goodsList[index].goods_id}}">
+    	<!-- 复选框图标 -->
+		<icon type="{{goodsList[index].selected ? 'success_circle' : 'circle'}}" size="20" catchtap="bindCheckbox" data-index="{{index}}"/>
+	
+		<!-- 缩略图 -->
+		  <image class="carts-image" src="{{goodsList[index].fimgs1[0]}}" mode="aspectFill" bindtap="showWare" data-id="{{goodsList[index].goods_id}}"/>
+      <view class="carts-text">
+      	<!-- 商品标题 -->
+        <text class="carts-title">{{goodsList[index].goods_name}}</text>
+        <view class="carts-subtitle">
+        <!-- 价格 -->
+          <text class="carts-price">{{goodsList[index].goods_price}}</text>
+          <!-- 数量加减 -->
+          <view>
+	          <view class="stepper">
+							<!-- 减号 -->
+							<text class="{{minusStatuses[index]}}" data-index="{{index}}" data-object-id="{{item.goods_id}}" catchtap="bindMinus">-</text>
+							<!-- 数值 -->
+							<input type="number" data-index="{{index}}" data-object-id="{{item.goods_id}}"bindchange="bindManual" value="{{goodsList[index].goods_num}}" />
+							<!-- 加号 -->
+							<text class="normal" data-index="{{index}}" data-object-id="{{item.goods_id}}"catchtap="bindPlus">+</text>
+	          </view>
+          </view>
+          <!-- //数量加减 -->
+		  <image catchtap="deleteOne" data-index="{{index}}"  data-object-id="{{item.goods_id}}" class="delete" src="../../image/icon/icon_delete.png" style="" mode="widthFix" />
+        </view>
+      </view>
+    </view>
+    
+  <!--购物车无商品时-->
+  <view class="noData" wx:if="{{goodsList.length<=0}}"> 
+    <image src="../../../image/icon/order-nodata.png"></image>
+    <text>购物车空空如也</text>
+  </view>
+
+</view>
+
+
+
+<view class="carts-footer">
+	<view class="select-and-amount" bindtap="bindSelectAll">
+		<view class="left">
+			<icon type="{{selectedAllStatus ? 'success_circle' : 'circle'}}" size="18"/>
+		<text>全选</text>
+		</view>
+		<view class="right">
+			<text class="totalPrice">合计：￥{{total}}</text>
+		</view>
+	</view>
+	 <!--<view class="delete" bindtap="deleteAll">删除</view> -->
+    <view class="button" bindtap="submitOrder">立即结算</view>   
+</view>
+
+
+
+<loading hidden="{{loadingHidden}}">
+  加载中...
+</loading>
+
+
+<!--<view class="mask" wx:if="{{!ifHasCard}}">
+  <view class="getCard">
+    <view class="closeBox" bindtap="close">
+      <image src="../../image/icon/close.png"></image>
+    </view>
+    <view class="mainBox" bindtap="getCard">
+      <text class="getText">点击领取会员卡并激活</text> 
+    </view>
+  </view>
+</view>-->

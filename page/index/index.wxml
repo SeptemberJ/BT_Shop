@@ -1,0 +1,96 @@
+<view class="container">
+
+<!--hello customer-->
+<view class="hello">
+  <text class="nickName">{{nickName}}，{{greeting}}</text>
+  <text class="Btabstract">{{Btabstract}}</text>
+</view>
+
+<!--searchBlock-->
+<view class="searchBlock">
+  <!--search-->
+  <view class="search">
+    <input bindinput="chooseSearchKey" placeholder="搜索你想查询的商品" value="{{SearchKey}}"/>
+    <image src="{{searchOrClear}}" bindtap="goSearch"></image>
+  </view>
+  <!--result-->
+  <view class="resultList" wx:if="{{resultList.length>0}}">
+    <text wx:for="{{resultList}}" bindtap="chooseThis" data-id="{{item.FItemID}}">{{item.FName}}</text>
+  </view>
+</view>
+
+<!--mainFour-->
+<view class="mainFour">
+  <view class="lineItem">
+    <view class="item" wx:for="{{menuList}}">
+      <view class="itemInner" data-id="{{item.FItemID}}" bindtap="getGoodsByClass">
+        <image src="{{icons[index]}}"></image>
+        <text>{{item.FName}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--classify-->
+<view class="classify" wx:for="{{products}}" wx:key="">
+  <swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" >
+  <block wx:for="{{item.fimgs1}}" wx:for-index="goodIndex" wx:for-item="goodItem" wx:key="">
+    <swiper-item>
+      <navigator url="../ware/index?id={{item.fitemid}}" hover-class="navigator-hover">
+        <image src="{{goodItem}}" class="slide-image" />
+        <view class="swipeNavTit">
+          <text class="bigTit">{{item.fname}}</text>
+          <text class="smallTit">{{item.fbigtitle}}</text>
+        </view>
+        <view class="priceBar">
+          <view class="price">￥{{item.frefcost}}</view>
+          <view class="reference">{{goodIndex+1}}/{{item.fimgs1.length}}</view>
+        </view>
+      </navigator>
+    </swiper-item>
+  </block>
+</swiper>
+</view>
+<!--<view class="classify" wx:for="{{products}}" wx:key="">
+  <view class="shortLine"></view>
+  <view class="navTitle">
+    <text>{{item.FName}}</text>
+  </view>
+  <swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" >
+  <block wx:for="{{item.goodsList}}" wx:for-index="goodIndex" wx:for-item="goodItem" wx:key="">
+    <swiper-item>
+      <navigator url="../ware/index?id={{goodItem.fitemid}}" hover-class="navigator-hover">
+        <image src="{{goodItem.fimgs1[0]}}" class="slide-image" />
+        <view class="swipeNavTit">
+          <text class="bigTit">{{goodItem.fname}}</text>
+          <text class="smallTit">{{goodItem.fbigtitle}}</text>
+        </view>
+        <view class="priceBar">
+          <view class="price">￥{{goodItem.frefcost}}</view>
+          <view class="reference">{{goodIndex+1}}/{{item.goodsList.length}}</view>
+        </view>
+      </navigator>
+    </swiper-item>
+  </block>
+</swiper>
+</view>-->
+<!--//classify-->
+
+</view>
+
+<loading hidden="{{loadingHidden}}">
+  加载中...
+</loading>
+<!-- wx:if="{{jihuo}}"-->
+<view class="mask" wx:if="{{jihuo}}">
+  <view class="getCard">
+    <view class="closeBox" bindtap="close">
+      <image src="../../image/icon/close.png"></image>
+    </view>
+    <view class="mainBox" bindtap="getCard">
+    <image src="../../image/getCoupon.png"></image>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,256 @@
+<!--Delivery address-->
+
+
+
+
+
+
+<!--order list-->
+<view class="orderList">
+    <view class="order_item" wx:for="{{orderInfo.buyList}}" wx:key>
+        <image class="ware_img" src="{{item.fimgs1[0]}}"></image>
+        <text class="ware_tit">{{item.goods_name}}</text>
+        <view class="ware_amount_price">
+            <text>{{item.goods_price}}</text>
+            <text>x{{item.goods_num}}</text>
+        </view>
+    </view>
+</view>
+
+
+
+
+<!--收货方式-->
+<view class="delivery_info">
+    <view class="way_item" bindtap="chooseWay" data-index="0" data-way="快递送货">
+        <icon type="{{deliveryWays[0]== true ? 'success_circle' : 'circle'}}"/>
+        <text>快递送货</text>
+    </view>
+    <view class="way_item" bindtap="chooseWay" data-index="1" data-way="门店自提">
+        <icon type="{{deliveryWays[1]== true ? 'success_circle' : 'circle'}}"/>
+        <text>门店自提</text>
+    </view>
+    <view class="way_item" bindtap="chooseWay" data-index="2" data-way="门店配送">
+        <icon type="{{deliveryWays[2]== true ? 'success_circle' : 'circle'}}"/>
+        <text>门店配送</text>
+    </view>
+</view>
+
+<!--地址-->
+
+<!--门店选择-->
+<view class="chooseStore" wx:if="{{deliveryWay=='门店自提'}}">
+    <picker bindchange="bindStoreChange" value="{{storeIndex}}" range="{{storeList}}" class="chooseStore">
+    <view class="chooseStoreText">
+      {{storeList[storeIndex]}}
+    </view>
+    <image src="../../image/icon-arrowdown.png"></image>
+  </picker>
+    <!--<text bindtap="chooseStore" class="required">选择门店</text>-->
+    
+</view>
+
+<!--详细地址-->
+<view>
+    <!--未添加地址-->
+    <view class="noAddress" wx:if="{{!address && deliveryWay!='门店自提'}}" bindtap="chooseAddress">
+        <view class="alignLeft">
+            <image class="add_address" src="../../image/icon/add.png"></image>
+            <text>新增收货地址</text>
+        </view>
+    </view>
+    <!--已添加地址-->
+    <view wx:if="{{address && deliveryWay!='门店自提'}}" class="deliveryAddress" bindtap="chooseAddress">
+        <view class="addr_icon">
+            <image src="../../image/icon/address.png"></image>
+        </view>
+        <view class="addr_info">
+            <view class="item">
+                <text>联系人：{{address.username}}</text>
+                <text>电话：{{address.smobile}}</text>
+            </view>
+            <view class="item">
+                <text class="detail">地址：{{address.province+address.city+address.region+address.sblock}}</text>
+            </view>
+        </view>
+        <view class="addr_arrow">
+            <image src="../../image/icon-arrowdown.png"></image>
+        </view>
+    </view>
+</view>
+
+<!--送货时间-->
+<view class="deliverTime" wx:if="{{deliveryWay=='门店配送'}}">
+    <text class="required">送货时间*:</text>
+    <picker mode="date" value="{{date}}" start="{{date}}"  bindchange="bindDateChange">
+    <view class="picker">
+      {{date}}
+    </view>
+  </picker>
+  <picker mode="time" value="{{timeS}}" bindchange="bindTimeSChange">
+    <view class="picker">
+     {{timeS}}
+    </view>
+  </picker>
+  <text>-</text>
+  <picker mode="time" value="{{timeE}}" bindchange="bindTimeEChange">
+    <view class="picker">
+     {{timeE}}
+    </view>
+  </picker>
+    <image src="../../image/icon-arrowdown.png"></image>
+</view>
+<!--//地址-->
+
+
+<!--发票-->
+<view class="receipt_info">
+    <view class="way_item">
+        <text>发票信息</text>
+    </view>
+    <view class="way_item" bindtap="chooseIfNeedReceipt" data-index="0" data-need="需要发票">
+        <icon type="{{ifNeedReceipts[0]== true ? 'success_circle' : 'circle'}}"/>
+        <text>需要发票</text>
+    </view>
+    <view class="way_item" bindtap="chooseIfNeedReceipt" data-index="1" data-need="不要发票">
+        <icon type="{{ifNeedReceipts[1]== true ? 'success_circle' : 'circle'}}"/>
+        <text>不要发票</text>
+    </view>
+</view>
+
+
+
+
+<!--抬头信息  需要发票-->
+<view  class="inputInfo" wx:if="{{ifNeedReceipt=='需要发票'}}" >
+<!--选择开具类型-->
+<view class="receipt_kind">
+    <view class="receipt_item">
+        <text class="tit">发票类型</text>
+    </view>
+    <view class="receipt_item kind" bindtap="chooseReceiptKind" data-index="0" data-kind="增值税普通发票">
+        <icon type="{{receiptKinds[0]== true ? 'success_circle' : 'circle'}}" size="20"/>
+        <text>增值税普通发票</text>
+    </view>
+    <view class="receipt_item kind" bindtap="chooseReceiptKind" data-index="1" data-kind="增值税专用发票">
+        <icon type="{{receiptKinds[1]== true ? 'success_circle' : 'circle'}}" size="20"/>
+        <text>增值税专用发票</text>
+    </view>
+</view>
+<!--//选择开具类型-->
+
+<!--详细开具类型填写-->
+<view class="receiptAttach">
+    <!--普通发票-->
+    <view class="normalReceipt" wx:if="{{receiptKinds[0]== true}}">
+        <view class="receipt_item">
+            <text>请填写增票资质信息：</text>
+        </view>
+        <view class="receipt_item">
+            <text class="required">*发票抬头:</text>
+            <input bindinput="inputReceiptInfo" data-col="receipt_head" placeholder="请输入发票抬头" value="{{receiptAttachInfo.receipt_head}}"/>
+        </view>
+        <view class="receipt_item">
+            <text  class="required">*纳税识别码:</text>
+            <input bindinput="inputReceiptInfo" data-col="receipt_taxCode"  placeholder="请输入纳税识别码" value="{{receiptAttachInfo.receipt_taxCode}}"/>
+        </view>
+        <view class="receipt_item">
+            <text class="required">*收票邮箱:</text>
+            <input bindinput="inputReceiptInfo" data-col="receipt_email"  placeholder="请输入收票邮箱" value="{{receiptAttachInfo.receipt_email}}"/>
+        </view>
+        <!--<view class="receipt_item" bindtap="chooseReceiptAddress">
+            <text class="">寄送地址:</text>
+            <image src="../../image/icon-arrowdown.png"></image>
+        </view>
+        <view class="receipt_item" wx:if="{{receiptAddress}}">
+            <text class="required">{{receiptAddress.province+receiptAddress.city+receiptAddress.region+receiptAddress.sblock}}</text>
+        </view>-->
+    </view>
+    <!--//普通发票-->
+    <!--专用发票-->
+    <view class="specialReceipt" wx:else>
+        <!--<form bindsubmit="formSubmit">-->
+        <view class="receipt_item">
+            <text>请填写增票资质信息：</text>
+        </view>
+        <view class="receipt_item">
+            <text class="required">*发票抬头:</text>
+            <input bindinput="inputReceiptInfo" data-col="receipt_head"  placeholder="请输入发票抬头" value="{{receiptAttachInfo.receipt_head}}"/>
+        </view>
+        <view class="receipt_item">
+            <text  class="required">*纳税识别码:</text>
+            <input bindinput="inputReceiptInfo" data-col="receipt_taxCode"  placeholder="请输入纳税识别码" value="{{receiptAttachInfo.receipt_taxCode}}"/>
+        </view>
+        <view class="receipt_item">
+            <text class="required">*注册地址:</text>
+            <input bindinput="inputReceiptInfo" data-col="receipt_signAddr"  placeholder="请输入注册地址" value="{{receiptAttachInfo.receipt_signAddr}}"/>
+        </view>
+        <view class="receipt_item">
+            <text class="required">*电话:</text>
+            <input bindinput="inputReceiptInfo" data-col="receipt_tel" placeholder="请输入电话" value="{{receiptAttachInfo.receipt_tel}}"/>
+        </view>
+        <view class="receipt_item">
+            <text class="required">*开户银行:</text>
+            <input bindinput="inputReceiptInfo" data-col="receipt_bank" placeholder="请输入开户银行" value="{{receiptAttachInfo.receipt_bank}}"/>
+        </view>
+        <view class="receipt_item">
+            <text class="required">*银行账号:</text>
+            <input bindinput="inputReceiptInfo" data-col="receipt_account"  placeholder="请输入银行账号" value="{{receiptAttachInfo.receipt_account}}"/>
+        </view>
+        <view class="receipt_item">
+            <text class="required">*收票邮箱:</text>
+            <input bindinput="inputReceiptInfo" data-col="receipt_email"  placeholder="请输入收票邮箱" value="{{receiptAttachInfo.receipt_email}}"/>
+        </view>
+        <!--<view class="receipt_item" bindtap="chooseReceiptAddress">
+            <text class="">寄送地址:</text>
+            <image src="../../image/icon-arrowdown.png"></image>
+        </view>
+        <view class="receipt_item" wx:if="{{receiptAddress}}">
+            <text class="required">{{receiptAddress.province+receiptAddress.city+receiptAddress.region+receiptAddress.sblock}}</text>
+        </view>-->
+    </view>
+    <!--//专用发票-->
+</view>
+<!--//详细开具类型填写-->
+</view>
+<!--//抬头信息  需要发票-->
+
+<!--不需要发票-->
+<view class="chooseReceiptBar" wx:else>
+</view>
+
+    
+
+
+
+
+
+
+<!--coupon-->
+<!--<view class="coupon_info" wx:if="{{discount>0}}">
+    <text>优惠券</text>
+    <view class="illustration">
+        <text>满{{couponTerm}}减{{discount}}</text>
+        <text>-{{discount}}</text>
+    </view>
+</view>-->
+
+
+<!--attached information-->
+<view class="attached_info">
+    <!--<text>留言</text>-->
+    <textarea name="message" placeholder="给商家留言" maxlength="150" style="height:150rpx;" bindinput="leaveMsg"/>
+</view>
+
+
+
+<!--submitBt-->
+<view class="footer_total">
+    <view class="toatl_price">合计：{{orderInfo.total}}</view>
+    <!--<view class="toatl_price">合计：{{orderInfo.total-discount}}</view>-->
+    <button class="submitBt" bindtap="submitOrder" disabled="{{canDo}}">提交订单</button>
+</view>
+
+<loading hidden="{{loadingHidden}}">
+  加载中...
+</loading>
